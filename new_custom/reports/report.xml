@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="report_template">
+
+        <t t-call="web.html_container">
+            <div t-attf-class="header" t-att-style="report_header_style">
+                <div class="row">
+                    <div class="col-3 mb4">
+                        <img src='/new_custom/static/img/logo2.jpeg' style="max-height: 90px;max-width:100%;"/>
+                        <img src='/new_custom/static/img/logo.jpeg' style="max-height: 90px;max-width:100%;"/>
+                    </div>
+                </div>
+                <hr class="solid"></hr>
+
+            </div>
+            <t t-foreach="docs" t-as="doc">
+                <div class="page" style="padding-left:10px;padding-right:10px;">
+                    <table style="border-collapse: collapse;width: 100%;">
+
+                        <thead>
+                            <span t-filed="doc.partner_id"/>
+
+
+                            <tr>
+                                <th colspan="4" style="width: 33.33%; text-align: left;">
+                                    <span>
+                                        <p>&#160;التاريخ &#160;&#160;/&#160;&#160;/&#160;&#160;&#160;&#160;14هـ</p>
+                                        <p>20&#160;&#160;&#160;&#160;/&#160;&#160;/&#160;&#160;&#160;الموافق&#160;</p>
+                                    </span>
+                                </th>
+                                <th colspan="4" style="width: 33.33%; text-align: center;">
+                                    <span>
+                                        <p style="direction: rtl;">سند صرف رقم (67)</p>
+                                        <p>Payment Voucher No.(67)</p>
+                                    </span>
+                                </th>
+                                <th colspan="4" style="width:33.33%; text-align: right;">
+                                    <p>
+                                        <strong style="margin-right:15px">Riyal.ريال &#160;</strong>H. &#160;هـ
+                                    </p>
+
+                                    <span style=" border: 2px solid black;padding: 5px 40px 5px 40px;" border="1"></span>
+                                    <span style=" border: 2px solid black;padding: 5px 40px 5px 40px;" border="1"></span>
+                                </th>
+                            </tr>
+                        </thead>
+                    </table>
+                    <br></br>
+                    <br></br>
+                    <table style="border-collapse: collapse;width: 100%;">
+
+                        <tbody>
+                            <tr style="text-align:center">
+                                <p>Pay To Mr./s.  :.....................................................................................................اصرفوا إلي السيد(ة)/السادة</p>
+                                <p>Amount of     :...............................................................................................................................مبلغ و قدره</p>
+                                <p>Bank ........................ علي بنك
+                                    <input type="checkbox" id="oe_import_tracking" style="margin-left:12px;margin-right:12px"/>
+                                    Bank Transfer
+                                    <input type="checkbox" id="oe_import_tracking" style="margin-left:12px;margin-right:12px"/>
+                                    Cash
+                                    <input type="checkbox" id="oe_import_tracking" style="margin-left:12px;margin-right:12px"/>
+                                    ..................... شيك رقم
+                                    <input type="checkbox" id="oe_import_tracking" style="margin-left:12px;margin-right:12px" />
+                                    حواله
+                                    <input type="checkbox" id="oe_import_tracking" style="margin-left:12px;margin-right:12px" />
+                                </p>
+
+
+                                <p>Being ..................................................................................................................................... وذلك مقابل</p>
+                                <p style="margin-left:5%;">........................................................................................................................................</p>
+                                <p style="margin-left:5%;">........................................................................................................................................</p>
+                                <p style="margin-left:5%;">........................................................................................................................................</p>
+                                <p style="margin-left:5%;">........................................................................................................................................</p>
+                                <p style="margin-left:5%;">........................................................................................................................................</p>
+                                <p style="margin-left:5%;">........................................................................................................................................</p>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                    <br></br>
+                    <br></br>
+                    <table style="border: 1px solid;width:100%">
+                        <thead style="border: 1px solid;">
+                            <tr>
+                                <td>الملاحظة</td>
+                                <td>تم الدفع</td>
+                                <td>المبلغ</td>
+                                <td>التاريخ</td>
+                                <td>الدفعة</td>
+                            </tr>
+                        </thead>
+                        <tbody style="border: 1px solid;">
+                            <t t-foreach="doc.payment_template_id.line_ids" t-as="line">
+                                <tr>
+
+                                    <td>
+                                        <span t-esc="line.note"/>
+                                    </td>
+                                    <td>
+                                        <t t-if="line.is_paid==true">
+                                            <input type="checkbox" id="oe_import_tracking" checked="checked" style="margin-left:12px;margin-right:12px"/>
+                                        </t>
+                                        <t t-else="line.is_paid==false">
+                                            <input type="checkbox" id="oe_import_tracking" style="margin-left:12px;margin-right:12px"/>
+                                        </t>
+                                    </td>
+                                    <td>
+                                        <span t-esc="line.payment_amount"/>
+                                    </td>
+                                    <td>
+                                        <span t-esc="line.payment_date"/>
+                                    </td>
+                                    <td>
+                                        <span t-esc="doc.name"/>
+                                    </td>
+                                </tr>
+                            </t>
+
+                        </tbody>
+                    </table>
+                    <br></br>
+                    <br></br>
+                    <table>
+                        <tr>
+                            <th colspan="4" style="width:  25%; text-align: center;">
+                                <span>إعتماد</span>
+                            </th>
+                            <th colspan="4" style="width: 33.33%; text-align: center;">
+                                <span>مراجعة</span>
+                            </th>
+                            <th colspan="4" style="width: 33.33%; text-align: center;">
+                                <span>مراجعة</span>
+                            </th>
+                            <th colspan="4" style="width: 33.33%; text-align: center;">
+                                <span>إعداد</span>
+                            </th>
+
+                        </tr>
+
+                        <tr>
+                            <th colspan="4" style="width: 25%; text-align: center;">
+                                <span>Approved By</span>
+                            </th>
+                            <th colspan="4" style="width: 33.33%; text-align: center;">
+                                <span>Reviewed By</span>
+                            </th>
+                            <th colspan="4" style="width: 33.33%; text-align: center;">
+                                <span>Reviewed By</span>
+                            </th>
+                            <th colspan="4" style="width: 33.33%; text-align: center;">
+                                <span>Prepared By</span>
+                            </th>
+
+                        </tr>
+
+                        <tr>
+                            <th colspan="4" style="width:  25%; text-align: center;">
+                                <span>العضو المنتدب</span>
+                            </th>
+                            <th colspan="4" style="width: 33.33%; text-align: center;">
+                                <span>المدير المالي</span>
+                            </th>
+                            <th colspan="4" style="width: 33.33%; text-align: center;">
+                                <span>رئيس الحسابات</span>
+                            </th>
+                            <th colspan="4" style="width: 33.33%; text-align: center;">
+                                <span>المحاسب</span>
+                            </th>
+
+                        </tr>
+                        <tr>
+                            <th colspan="4" style="width:  25%; text-align: center;">
+                                <span>M.D</span>
+                            </th>
+                            <th colspan="4" style="width: 33.33%; text-align: center;">
+                                <span>C.F.O.</span>
+                            </th>
+                            <th colspan="4" style="width: 33.33%; text-align: center;">
+                                <span>C.A.</span>
+                            </th>
+                            <th colspan="4" style="width: 33.33%; text-align: center;">
+                                <span>A.C.</span>
+                            </th>
+
+                        </tr>
+                        <tr>
+                            <th colspan="4" style="width:  25%; text-align: center;">
+                                <t t-if="doc.is_signed_by_employee">
+                                    <img t-if="doc.group_id.group_image" t-att-src="'data:image/png;base64,%s' % doc.group_id.group_image" width="50" height="50"/>
+                                </t>
+                            </th>
+                            <th colspan="4" style="width: 33.33%; text-align: center;">
+                                <t t-if="doc.is_signed_by_accountant">
+                                    <img t-if="doc.group_id.group_image" t-att-src="'data:image/png;base64,%s' % doc.group_id.group_image" width="50" height="50"/>
+                                </t>
+                            </th>
+                            <th colspan="4" style="width: 33.33%; text-align: center;">
+                                <t t-if="doc.is_signed_by_manager">
+                                    <img t-if="doc.group_id.group_image" t-att-src="'data:image/png;base64,%s' % doc.group_id.group_image" width="50" height="50"/>
+                                </t>
+                            </th>
+                            <th colspan="4" style="width: 33.33%; text-align: center;">
+                                <t t-if="doc.is_signed_by_ceo">
+                                    <img t-if="doc.group_id.group_image" t-att-src="'data:image/png;base64,%s' % doc.group_id.group_image" width="50" height="50"/>
+                                </t>
+                            </th>
+                        </tr>
+
+                        <tr>
+                            <th colspan="4" style="width: 25%; text-align: center;">
+                                <t t-if="doc.user_id">
+                                    <span t-esc="doc.user_id.name"/>
+                                </t>
+                            </th>
+                            <th colspan="4" style="width: 33.33%; text-align: center;">
+                                <span>..........................</span>
+                            </th>
+                            <th colspan="4" style="width: 33.33%; text-align: center;">
+                                <span>..........................</span>
+                            </th>
+                            <th colspan="4" style="width: 33.33%; text-align: center;">
+                                <span>..........................</span>
+                            </th>
+
+                        </tr>
+                    </table>
+                </div>
+            </t>
+        </t>
+    </template>
+    <record id="payment_report_action" model="ir.actions.report">
+        <field name="name">Payment Request Report</field>
+        <field name="model">emlpoyee.payment.register</field>
+        <field name="report_type">qweb-html</field>
+        <field name="report_name">new_custom.report_template</field>
+        <field name="report_file">new_custom.report_template</field>
+        <field name="binding_model_id" ref="model_emlpoyee_payment_register"/>
+        <field name="binding_type">report</field>
+    </record>
+
+
+</odoo>
+
+
+    

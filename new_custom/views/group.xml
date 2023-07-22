@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!--<p>Pay To Mr./s.  :.....................................................................................................اصرفوا إلي السيد(ة)/السادة</p>-->
+    <!-- <p>
+    <span style="float:left">Pay To Mr./s.</span>
+  
+    <span style="float:right">
+      اصرفوا إلي السيد(ة)/السادة
+    </span>
+    </p>
+    <p>
+        <span style="line-height:-0.2">
+      
+      :....................................................................................................
+    </span>
+    </p> -->
+    <!--     
+    <template id="web_menuitem_group" inherit_id="web.menuitem">
+        <xpath expr="//li[@t-name='menuitem']" position="attributes">
+            <attribute name="t-att-class">oe_secondary_menu</attribute>
+        </xpath>
+        <xpath expr="//div[@t-name='menuitem_name']" position="before">
+            <t t-if="menuitem.group_id and menuitem.group_id.group_image">
+                <img t-att-src="'data:image/png;base64,%s' % menuitem.group_id.group_image" class="oe_menu_leaf_icon"/>
+            </t>
+        </xpath>
+    </template>
+
+    <template id="web_groups" inherit_id="web.groups">
+        <xpath expr="//li[@t-name='group']" position="attributes">
+            <attribute name="t-att-class">oe_secondary_menu</attribute>
+        </xpath>
+        <xpath expr="//div[@t-name='group_name']" position="before">
+            <t t-if="group.group_image">
+                <img t-att-src="'data:image/png;base64,%s' % group.group_image" class="oe_menu_leaf_icon"/>
+            </t>
+        </xpath>
+    </template>
+
+    <record id="res_groups_form_view" model="ir.ui.view">
+        <field name="name">res.groups.form</field>
+        <field name="model">res.groups</field>
+        <field name="arch" type="xml">
+            <form string="Group" version="7.0">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="full_name"/>
+                            <field name="category_id"/>
+                            <field name="implied_ids"/>
+                        </group>
+                        <group>
+                            <field name="users"/>
+                            <field name="menu_access"/>
+                            <field name="group_image"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record> -->
+
+</odoo>

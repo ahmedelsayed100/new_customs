@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_payment_employee,access_payment_employee,model_emlpoyee_payment_register,,1,1,1,1
+access_deal_payment_type,access_deal_payment_type,model_deal_payment_type,,1,1,1,1
+access_payment_super,access_payment_super,model_payment_super,,1,1,1,1
+access_payment_super_line,access_payment_super_line,model_payment_super_line,,1,1,1,1
+access_hr_payment_request_reject,access_hr_payment_request_reject,model_hr_payment_request_reject,,1,1,1,1
+access_user_signature,access_user_signature,model_user_signature,,1,1,1,1
