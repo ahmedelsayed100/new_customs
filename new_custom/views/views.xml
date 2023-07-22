@@ -160,6 +160,8 @@
                             <field name="employee_user" invisible="1" force_save="1"/>
                             <field name="manager_user" invisible="1" force_save="1"/>
                             <field name="ceo_user" invisible="1" force_save="1" />
+                            <field name="previous_state" invisible="1" force_save="1" />
+
 
 
                         </group>
@@ -184,31 +186,6 @@
                     <field name="payment_date"/>
                     <field name="memo"/>
                 </search>
-            </field>
-        </record>
-
-        <record id="user_signature_tree_view" model="ir.ui.view">
-            <field name="name">user_signature_tree_view</field>
-            <field name="model">user.signature</field>
-            <field name="arch" type="xml">
-                <tree string="User Signature">
-                    <field name="partner_id"/>
-                    <field name="partner_signature"/>
-                </tree>
-            </field>
-        </record>
-        <record id="user_signature_form_view" model="ir.ui.view">
-            <field name="name">user_signature_form_view</field>
-            <field name="model">user.signature</field>
-            <field name="arch" type="xml">
-                <form string="User Signature">
-                    <sheet>
-                        <group>
-                            <field name="partner_id"/>
-                            <field name="partner_signature" widget="image"/>
-                        </group>
-                    </sheet>
-                </form>
             </field>
         </record>
 
@@ -257,22 +234,12 @@
             </field>
         </record>
 
-        <record id="user_signature_action" model="ir.actions.act_window">
-            <field name="name">التوقيعات</field>
-            <field name="res_model">user.signature</field>
-            <field name="view_type">form</field>
-            <field name="help" type="html">
-                <p class="oe_view_nocontent_create">
-                    انشاء
-                </p>
-            </field>
-        </record>
+
 
         <menuitem name='تسجيل الطلبات' web_icon="new_custom,static/description/icon.jpeg" string='تسجيل الطلبات' id="root_menu_employee_register" sequence="1" />
         <menuitem action="payment_employee_action" name='تسجيل الطلبات' parent='root_menu_employee_register' string='تسجيل الطلبات' id="menu_employee_register" sequence="1" />
         <menuitem action="deal_payment_employee_action" name='انواع المعاملات' string='انواع المعاملات' parent='root_menu_employee_register' id="menu_deal" sequence="2" />
         <menuitem action="super_payment_employee_action" name='الدفعات' string='الدفعات' parent='root_menu_employee_register' id="menu_payment_super" sequence="3" />
-        <menuitem action="user_signature_action" name='التوقيعات' string='التوقيعات' parent='root_menu_employee_register' id="menu_user_signature" sequence="4" />
 
 
     </data>

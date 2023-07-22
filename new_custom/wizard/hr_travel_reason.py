@@ -23,6 +23,24 @@ class RejectReason(models.TransientModel):
 
     @api.multi
     def action_reject(self):
+        stat = self.env.context.get('previous_state')
+        previous_statee = stat
+        if stat == 'employee':
+            previous_statee = 'employee'
+        elif stat == 'manager':
+            previous_statee = 'employee'
+        elif stat == 'accountant':
+            previous_statee = 'manager'
+        elif stat == 'ceo':
+            previous_statee = 'accountant'
+        elif stat == 'confirm':
+            previous_statee = 'ceo'
+        elif stat == 'done':
+            previous_statee = 'confirm'
+        elif stat == 'cancelled':
+            previous_statee = 'employee'
+        # previous_statee = self.env.context.get('previous_state')                #retrieve previous state from context
         self.travel_request_id.sudo().write({'reject_reason': self.reason,
-                                             'state': 'rejected'})
+                                             'state': previous_statee})
+        
 
