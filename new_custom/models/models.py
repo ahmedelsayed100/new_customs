@@ -127,9 +127,7 @@ class EmployeeRegisterPayment(models.Model):
 
     group_id = fields.Many2one('res.groups')
 
-<<<<<<< HEAD
     # user_id=fields.Many2one('res.users',lambda self:self.env.user)
-=======
     accountant_image=fields.Binary()
     employee_image=fields.Binary()
     manager_image=fields.Binary()
@@ -142,7 +140,6 @@ class EmployeeRegisterPayment(models.Model):
 
     group_id=fields.Many2one('res.groups')
     user_id=fields.Many2one('res.users',default=lambda self:self.env.user)
->>>>>>> 53ddd49c2913dd076a06fcfd505d4efe6c1b8d71
 
     def get_group_id_by_name(self, group_name):
         group = self.env['res.groups'].search([('name', '=', group_name)], limit=1)
@@ -150,7 +147,6 @@ class EmployeeRegisterPayment(models.Model):
             return group
         else:
             return False
-<<<<<<< HEAD
 
     @api.onchange('state')
     def _onchange_state_to_get_signature(self):
@@ -170,8 +166,7 @@ class EmployeeRegisterPayment(models.Model):
         else:
             self.is_signed_by_employee = True
             self.group_id = self.get_group_id_by_name(group_name="employee_group")
-=======
-            
+
     @api.onchange('state')
     def _onchange_state_to_get_signature(self):
         if self.state == 'employee':
@@ -182,7 +177,6 @@ class EmployeeRegisterPayment(models.Model):
                 self.employee_user = self.user_id.name
             
     
->>>>>>> 53ddd49c2913dd076a06fcfd505d4efe6c1b8d71
 
     def action_reject(self):
         view_id = self.env.ref("new_custom.aspl_reason_payment_reject_wizard")
@@ -207,7 +201,6 @@ class EmployeeRegisterPayment(models.Model):
         }
 
     def action_to_manager(self):
-<<<<<<< HEAD
         self.write({'state': 'manager'})
 
     def action_to_accountant(self):
@@ -215,7 +208,6 @@ class EmployeeRegisterPayment(models.Model):
 
     def action_to_ceo(self):
         self.write({'state': 'ceo'})
-=======
         self.write({'state':'manager'})
         self.is_signed_by_manager = True
         self.group_id = self.get_group_id_by_name(group_name="صلاحية مدير")
@@ -239,7 +231,6 @@ class EmployeeRegisterPayment(models.Model):
         if self.user_id.id == self.group_id.users.id:
             self.ceo_user = self.user_id.name
 
->>>>>>> 53ddd49c2913dd076a06fcfd505d4efe6c1b8d71
 
     def action_to_accountant_confirmation(self):
         self.write({'state': 'confirm'})
