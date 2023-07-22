@@ -121,7 +121,7 @@
                         <button name="action_to_confirmed" groups="new_custom.create_payment_group" states="confirm" string="Done" type="object" class="oe_highlight"/>
                         <button name="action_reject" string="Reject" type="object" class="oe_highlight"/>
                         <button name="action_to_cancelled" string="Cancel" attrs="{'invisible':[('state','in',('done','cancelled'))]}" type="object" class="oe_highlight"/>
-                        <field name="state" widget="statusbar" statusbar_visible="employee,manager,accountant,ceo,confirm,done,rejected,cancelled" readonly="1"/>
+                        <field name="state" force_save="1" widget="statusbar" statusbar_visible="employee,manager,accountant,ceo,confirm,done,rejected,cancelled" readonly="1"/>
                     </header>
                     <sheet>
                         <div class="oe_button_box" name="button_box">
@@ -143,11 +143,25 @@
                         <group>
 
                             <field name="group_id" invisible="1" force_save="1"/>
-                            <!-- <field name="user_id" invisible="1" force_save="1"/> -->
+                            <field name="user_id" invisible="1" force_save="1"/>
                             <field name="is_signed_by_employee" invisible="1"/>
                             <field name="is_signed_by_accountant" invisible="1"/>
                             <field name="is_signed_by_manager" invisible="1"/>
                             <field name="is_signed_by_ceo" invisible="1"/>
+
+
+                            <field name="accountant_image" invisible="1" force_save="1"/>
+                            <field name="employee_image" invisible="1" force_save="1"/>
+                            <field name="manager_image" invisible="1" force_save="1"/>
+                            <field name="ceo_image" invisible="1" force_save="1"/>
+
+
+                            <field name="accountant_user" invisible="1" force_save="1"/>
+                            <field name="employee_user" invisible="1" force_save="1"/>
+                            <field name="manager_user" invisible="1" force_save="1"/>
+                            <field name="ceo_user" invisible="1" force_save="1" />
+
+
                         </group>
                     </sheet>
                     <div class="oe_chatter">
@@ -204,7 +218,7 @@
             <field name="inherit_id" ref="base.view_groups_form"/>
             <field name="arch" type="xml">
                 <xpath expr="//field[@name='name']" position="after">
-                    <field name="group_image" />
+                    <field name="group_image" force_save="1" />
                 </xpath>
             </field>
         </record>

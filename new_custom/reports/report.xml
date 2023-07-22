@@ -2,16 +2,15 @@
 <odoo>
 
     <template id="report_template">
-
         <t t-call="web.html_container">
             <div t-attf-class="header" t-att-style="report_header_style">
                 <div class="row">
                     <div class="col-3 mb4">
-                        <img src='/new_custom/static/img/logo2.jpeg' style="max-height: 90px;max-width:100%;"/>
-                        <img src='/new_custom/static/img/logo.jpeg' style="max-height: 90px;max-width:100%;"/>
+                        <img src="/new_custom/static/img/logo2.jpeg" style="max-height: 90px;max-width:100%;"/>
+                        <img src="/new_custom/static/img/logo.jpeg" style="max-height: 90px;max-width:100%;"/>
                     </div>
                 </div>
-                <hr class="solid"></hr>
+                <hr class="solid"/>
 
             </div>
             <t t-foreach="docs" t-as="doc">
@@ -25,8 +24,8 @@
                             <tr>
                                 <th colspan="4" style="width: 33.33%; text-align: left;">
                                     <span>
-                                        <p>&#160;التاريخ &#160;&#160;/&#160;&#160;/&#160;&#160;&#160;&#160;14هـ</p>
-                                        <p>20&#160;&#160;&#160;&#160;/&#160;&#160;/&#160;&#160;&#160;الموافق&#160;</p>
+                                        <p> التاريخ   /  /    14هـ</p>
+                                        <p>20    /  /   الموافق </p>
                                     </span>
                                 </th>
                                 <th colspan="4" style="width: 33.33%; text-align: center;">
@@ -37,90 +36,129 @@
                                 </th>
                                 <th colspan="4" style="width:33.33%; text-align: right;">
                                     <p>
-                                        <strong style="margin-right:15px">Riyal.ريال &#160;</strong>H. &#160;هـ
+                                        <strong style="margin-right:15px">Riyal.ريال  </strong>H.  هـ
                                     </p>
 
-                                    <span style=" border: 2px solid black;padding: 5px 40px 5px 40px;" border="1"></span>
-                                    <span style=" border: 2px solid black;padding: 5px 40px 5px 40px;" border="1"></span>
+                                    <span style=" border: 2px solid black;padding: 5px 40px 5px 40px;" border="1"/>
+                                    <span style=" border: 2px solid black;padding: 5px 40px 5px 40px;" border="1"/>
                                 </th>
                             </tr>
                         </thead>
                     </table>
-                    <br></br>
-                    <br></br>
+                    <br/>
+                    <br/>
                     <table style="border-collapse: collapse;width: 100%;">
 
                         <tbody>
                             <tr style="text-align:center">
-                                <p>Pay To Mr./s.  :.....................................................................................................اصرفوا إلي السيد(ة)/السادة</p>
-                                <p>Amount of     :...............................................................................................................................مبلغ و قدره</p>
-                                <p>Bank ........................ علي بنك
+                                <p>
+                                    <span style="float:left">Pay To Mr./s.</span>
+                                    <span style="float:right">
+                                      اصرفوا إلي السيد(ة)/السادة
+                                    </span>
+                                </p>
+                                <span style="line-height:0.01;padding-left:11%">
+                                      ..............................................................................................................................................
+                                </span>
+                            </tr>
+                            <br></br>
+                            <tr style="text-align:center">
+
+                                <p>
+                                    <span style="float:left">Amount of:</span>
+                                    <span style="float:right">
+                                     مبلغ و قدره
+                                    </span>
+                                </p>
+
+                                <span style="line-height:-2;padding-left:10%">
+                                      .....................................................................................................................................................................
+                                </span>
+                            </tr>
+                            <br></br>
+                            <tr style="text-align:center">
+                                <p>
+                                    <span style="float:left;padding-right:2%">Bank</span>
+                                   ............................   علي بنك
                                     <input type="checkbox" id="oe_import_tracking" style="margin-left:12px;margin-right:12px"/>
                                     Bank Transfer
                                     <input type="checkbox" id="oe_import_tracking" style="margin-left:12px;margin-right:12px"/>
                                     Cash
                                     <input type="checkbox" id="oe_import_tracking" style="margin-left:12px;margin-right:12px"/>
-                                    ..................... شيك رقم
-                                    <input type="checkbox" id="oe_import_tracking" style="margin-left:12px;margin-right:12px" />
+                                    ........................... شيك رقم
+                                    <input type="checkbox" id="oe_import_tracking" style="margin-left:12px;margin-right:12px"/>
                                     حواله
-                                    <input type="checkbox" id="oe_import_tracking" style="margin-left:12px;margin-right:12px" />
+                                    <input type="checkbox" id="oe_import_tracking" style="margin-left:12px;margin-right:12px"/>
                                 </p>
 
+                                <tr style="text-align:center">
+                                    <p>
+                                        <span style="float:left">Being:</span>
+                                        <span style="float:right">
+                                                                   وذلك مقابل
+                                        </span>
 
-                                <p>Being ..................................................................................................................................... وذلك مقابل</p>
-                                <p style="margin-left:5%;">........................................................................................................................................</p>
-                                <p style="margin-left:5%;">........................................................................................................................................</p>
-                                <p style="margin-left:5%;">........................................................................................................................................</p>
-                                <p style="margin-left:5%;">........................................................................................................................................</p>
-                                <p style="margin-left:5%;">........................................................................................................................................</p>
-                                <p style="margin-left:5%;">........................................................................................................................................</p>
-                            </tr>
+                                    </p>
 
-                        </tbody>
-                    </table>
-                    <br></br>
-                    <br></br>
-                    <table style="border: 1px solid;width:100%">
-                        <thead style="border: 1px solid;">
-                            <tr>
-                                <td>الملاحظة</td>
-                                <td>تم الدفع</td>
-                                <td>المبلغ</td>
-                                <td>التاريخ</td>
-                                <td>الدفعة</td>
-                            </tr>
-                        </thead>
-                        <tbody style="border: 1px solid;">
-                            <t t-foreach="doc.payment_template_id.line_ids" t-as="line">
-                                <tr>
-
-                                    <td>
-                                        <span t-esc="line.note"/>
-                                    </td>
-                                    <td>
-                                        <t t-if="line.is_paid==true">
-                                            <input type="checkbox" id="oe_import_tracking" checked="checked" style="margin-left:12px;margin-right:12px"/>
-                                        </t>
-                                        <t t-else="line.is_paid==false">
-                                            <input type="checkbox" id="oe_import_tracking" style="margin-left:12px;margin-right:12px"/>
-                                        </t>
-                                    </td>
-                                    <td>
-                                        <span t-esc="line.payment_amount"/>
-                                    </td>
-                                    <td>
-                                        <span t-esc="line.payment_date"/>
-                                    </td>
-                                    <td>
-                                        <span t-esc="doc.name"/>
-                                    </td>
+                                    <span style="line-height:-2.8;padding-left:5%">
+                                                                  ...................................................................................................................................................................................
+                                    </span>
                                 </tr>
-                            </t>
+                                <p style="margin-left:5%;">...................................................................................................................................................................................</p>
+                                <p style="margin-left:5%;">...................................................................................................................................................................................</p>
+                                <p style="margin-left:5%;">...................................................................................................................................................................................</p>
+                                <p style="margin-left:5%;">...................................................................................................................................................................................</p>
+                                <p style="margin-left:5%;">...................................................................................................................................................................................</p>
+                                <p style="margin-left:5%;">...................................................................................................................................................................................</p>
+                            </tr>
 
                         </tbody>
                     </table>
-                    <br></br>
-                    <br></br>
+                    <br/>
+                    <br/>
+                    <t t-if="doc.payment_template_id">
+                        <table style="border: 1px solid;width:100%">
+                            <thead style="border: 1px solid;">
+                                <tr>
+                                    <td>الملاحظة</td>
+                                    <td>تم الدفع</td>
+                                    <td>المبلغ</td>
+                                    <td>التاريخ</td>
+                                    <td>الدفعة</td>
+                                </tr>
+                            </thead>
+                            <tbody style="border: 1px solid;">
+                                <t t-foreach="doc.payment_template_id.line_ids" t-as="line">
+                                    <tr>
+
+                                        <td>
+                                            <span t-esc="line.note"/>
+                                        </td>
+                                        <td>
+                                            <t t-if="line.is_paid==true">
+                                                <input type="checkbox" id="oe_import_tracking" checked="checked" style="margin-left:12px;margin-right:12px"/>
+                                            </t>
+                                            <t t-else="line.is_paid==false">
+                                                <input type="checkbox" id="oe_import_tracking" style="margin-left:12px;margin-right:12px"/>
+                                            </t>
+                                        </td>
+                                        <td>
+                                            <span t-esc="line.payment_amount"/>
+                                        </td>
+                                        <td>
+                                            <span t-esc="line.payment_date"/>
+                                        </td>
+                                        <td>
+                                            <span t-esc="doc.payment_template_id.name"/>
+                                        </td>
+                                    </tr>
+                                </t>
+
+                            </tbody>
+                        </table>
+                    </t>
+                    <br/>
+                    <br/>
                     <table>
                         <tr>
                             <th colspan="4" style="width:  25%; text-align: center;">
@@ -187,40 +225,58 @@
                         <tr>
                             <th colspan="4" style="width:  25%; text-align: center;">
                                 <t t-if="doc.is_signed_by_employee">
-                                    <img t-if="doc.group_id.group_image" t-att-src="'data:image/png;base64,%s' % doc.group_id.group_image" width="50" height="50"/>
+                                    <img t-if="doc.employee_image" t-att-src="'data:image/png;base64,%s' % doc.employee_image" width="50" height="50"/>
                                 </t>
                             </th>
                             <th colspan="4" style="width: 33.33%; text-align: center;">
                                 <t t-if="doc.is_signed_by_accountant">
-                                    <img t-if="doc.group_id.group_image" t-att-src="'data:image/png;base64,%s' % doc.group_id.group_image" width="50" height="50"/>
+                                    <img t-if="doc.accountant_image" t-att-src="'data:image/png;base64,%s' % doc.accountant_image" width="50" height="50"/>
                                 </t>
                             </th>
                             <th colspan="4" style="width: 33.33%; text-align: center;">
                                 <t t-if="doc.is_signed_by_manager">
-                                    <img t-if="doc.group_id.group_image" t-att-src="'data:image/png;base64,%s' % doc.group_id.group_image" width="50" height="50"/>
+                                    <img t-if="doc.manager_image" t-att-src="'data:image/png;base64,%s' % doc.manager_image" width="50" height="50"/>
                                 </t>
                             </th>
                             <th colspan="4" style="width: 33.33%; text-align: center;">
                                 <t t-if="doc.is_signed_by_ceo">
-                                    <img t-if="doc.group_id.group_image" t-att-src="'data:image/png;base64,%s' % doc.group_id.group_image" width="50" height="50"/>
+                                    <img t-if="doc.ceo_image" t-att-src="'data:image/png;base64,%s' % doc.ceo_image" width="50" height="50"/>
                                 </t>
                             </th>
                         </tr>
 
                         <tr>
                             <th colspan="4" style="width: 25%; text-align: center;">
-                                <t t-if="doc.user_id">
-                                    <span t-esc="doc.user_id.name"/>
+                                <t t-if="doc.employee_user">
+                                    <span t-esc="doc.employee_user"/>
+                                </t>
+                                <t t-else="doc.employee_user==false">
+                                    <span>..........................</span>
                                 </t>
                             </th>
                             <th colspan="4" style="width: 33.33%; text-align: center;">
-                                <span>..........................</span>
+                                <t t-if="doc.accountant_user">
+                                    <span t-esc="doc.accountant_user"/>
+                                </t>
+                                <t t-else="doc.accountant_user==false">
+                                    <span>..........................</span>
+                                </t>
                             </th>
                             <th colspan="4" style="width: 33.33%; text-align: center;">
-                                <span>..........................</span>
+                                <t t-if="doc.manager_user">
+                                    <span t-esc="doc.manager_user"/>
+                                </t>
+                                <t t-else="doc.manager_user==false">
+                                    <span>..........................</span>
+                                </t>
                             </th>
                             <th colspan="4" style="width: 33.33%; text-align: center;">
-                                <span>..........................</span>
+                                <t t-if="doc.ceo_user">
+                                    <span t-esc="doc.ceo_user"/>
+                                </t>
+                                <t t-else="doc.ceo_user==false">
+                                    <span>..........................</span>
+                                </t>
                             </th>
 
                         </tr>
