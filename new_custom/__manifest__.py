@@ -20,16 +20,15 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base', 'account','hr'],
+    'depends': ['base', 'account', 'hr'],
 
     # always loaded
     'data': [
         'security/ir.model.access.csv',
 
-        # 'data/sequence.xml',
+        'data/sequence.xml',
         'security/security.xml',
         'reports/report.xml',
-        'views/group.xml',
         'views/views.xml',
         'wizard/hr_travel_reason_wizard.xml',
         # 'views/templates.xml',

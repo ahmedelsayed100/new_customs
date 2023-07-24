@@ -18,9 +18,18 @@ class RejectReason(models.TransientModel):
     _rec_name = 'travel_request_id'
     _description = "Reason for Rejection"
 
-    travel_request_id = fields.Many2one(comodel_name='emlpoyee.payment.register',required=True)
+    travel_request_id = fields.Many2one(
+        comodel_name='emlpoyee.payment.register', required=True)
     reason = fields.Char(string="Reason", required=True)
 
+#   ('employee', 'Employee'),
+#         ('manager', 'Manager'),
+#         ('accountant', 'Accountant'),
+#         ('confirm', 'Accountant Confirm'),
+#         ('ceo', 'CEO'),
+#         ('cfo', 'CFO'),
+#         ('done', 'Done'),
+#         ('rejected', 'Rejected'),
     @api.multi
     def action_reject(self):
         stat = self.env.context.get('previous_state')
@@ -31,16 +40,18 @@ class RejectReason(models.TransientModel):
             previous_statee = 'employee'
         elif stat == 'accountant':
             previous_statee = 'manager'
-        elif stat == 'ceo':
-            previous_statee = 'accountant'
         elif stat == 'confirm':
+            previous_statee = 'accountant'
+        elif stat == 'cfo':
+            previous_statee = 'confirm'
+        elif stat == 'ceo':
+            previous_statee = 'cfo'
+        elif stat == 'md':
             previous_statee = 'ceo'
         elif stat == 'done':
-            previous_statee = 'confirm'
+            previous_statee = 'md'
         elif stat == 'cancelled':
             previous_statee = 'employee'
         # previous_statee = self.env.context.get('previous_state')                #retrieve previous state from context
         self.travel_request_id.sudo().write({'reject_reason': self.reason,
                                              'state': previous_statee})
-        
-

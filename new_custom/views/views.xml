@@ -99,10 +99,12 @@
             <field name="model">emlpoyee.payment.register</field>
             <field name="arch" type="xml">
                 <tree string="Payment Employee Tree">
+                    <field name="ref"/>
                     <field name="name"/>
                     <field name="analytic_account_id"/>
                     <field name="partner_id"/>
                     <field name="amount"/>
+                    <field name="amount_in_arabic"/>
                     <field name="payment_date"/>
                     <field name="state"/>
                 </tree>
@@ -114,24 +116,36 @@
             <field name="arch" type="xml">
                 <form string="Payment Employee Form">
                     <header>
+                        <!-- emp - manager - accountant - confirm acoountant - cfo - ceo - md - done -->
                         <button name="action_to_manager" groups="new_custom.employee_group" states="employee" string="Confirm" type="object" class="oe_highlight"/>
                         <button name="action_to_accountant" groups="new_custom.manager_group" states="manager" string="Confirm" type="object" class="oe_highlight"/>
-                        <button name="action_to_ceo" groups="new_custom.accountant_group" states="accountant" string="Confirm" type="object" class="oe_highlight"/>
-                        <button name="action_to_accountant_confirmation" groups="new_custom.ceo_group" states="ceo" string="Confirm" type="object" class="oe_highlight"/>
-                        <button name="action_to_confirmed" groups="new_custom.create_payment_group" states="confirm" string="Done" type="object" class="oe_highlight"/>
+                        <button name="action_to_accountant_confirmation" groups="new_custom.ceo_group" states="accountant" string="Confirm" type="object" class="oe_highlight"/>
+
+                        <button name="action_to_cfo" groups="new_custom.cfo_group" states="confirm" string="Confirm" type="object" class="oe_highlight"/>
+                        <button name="action_to_ceo" groups="new_custom.accountant_group" states="cfo" string="Confirm" type="object" class="oe_highlight"/>
+                        <button name="action_to_md" groups="new_custom.md_group" states="ceo" string="Confirm" type="object" class="oe_highlight"/>
+                        <button name="action_to_confirmed" groups="new_custom.create_payment_group" states="md" string="Done" type="object" class="oe_highlight"/>
+
                         <button name="action_reject" string="Reject" type="object" class="oe_highlight"/>
                         <button name="action_to_cancelled" string="Cancel" attrs="{'invisible':[('state','in',('done','cancelled'))]}" type="object" class="oe_highlight"/>
-                        <field name="state" force_save="1" widget="statusbar" statusbar_visible="employee,manager,accountant,ceo,confirm,done,rejected,cancelled" readonly="1"/>
+                        <field name="state" force_save="1" widget="statusbar" statusbar_visible="employee,manager,accountant,confirm,cfo,ceo,md,done,rejected,cancelled" readonly="1"/>
                     </header>
                     <sheet>
                         <div class="oe_button_box" name="button_box">
                             <button class="oe_stat_button" type="object" name="open_payment" icon="fa-book" string="Payment"></button>
                         </div>
                         <group>
+                            <field name="ref"/>
                             <field name="name"/>
                             <field name="analytic_account_id"/>
                             <field name="partner_id"/>
                             <field name="amount"/>
+                            <field name="amount_in_arabic"/>
+
+                            <field name="total_contract"/>
+                            <field name="tax_precentage"/>
+                            <field name="total_contract_with_tax" force_save="1"/>
+
                             <field name="journal_id"/>
                             <field name="payment_date"/>
                             <field name="payment_deal_id"/>
@@ -148,18 +162,24 @@
                             <field name="is_signed_by_accountant" invisible="1"/>
                             <field name="is_signed_by_manager" invisible="1"/>
                             <field name="is_signed_by_ceo" invisible="1"/>
+                            <field name="is_signed_by_cfo" invisible="1"/>
+                            <field name="is_signed_by_md" invisible="1"/>
 
 
                             <field name="accountant_image" invisible="1" force_save="1"/>
                             <field name="employee_image" invisible="1" force_save="1"/>
                             <field name="manager_image" invisible="1" force_save="1"/>
                             <field name="ceo_image" invisible="1" force_save="1"/>
+                            <field name="cfo_image" invisible="1" force_save="1"/>
+                            <field name="md_image" invisible="1" force_save="1"/>
 
 
                             <field name="accountant_user" invisible="1" force_save="1"/>
                             <field name="employee_user" invisible="1" force_save="1"/>
                             <field name="manager_user" invisible="1" force_save="1"/>
                             <field name="ceo_user" invisible="1" force_save="1" />
+                            <field name="cfo_user" invisible="1" force_save="1" />
+                            <field name="md_user" invisible="1" force_save="1" />
                             <field name="previous_state" invisible="1" force_save="1" />
 
 
