@@ -130,12 +130,14 @@ class EmployeeRegisterPayment(models.Model):
 
     is_signed_by_employee = fields.Boolean()
     is_signed_by_accountant = fields.Boolean()
+    is_signed_by_accountant_manager = fields.Boolean()
     is_signed_by_manager = fields.Boolean()
     is_signed_by_ceo = fields.Boolean()
     is_signed_by_cfo = fields.Boolean()
     is_signed_by_md = fields.Boolean()
 
     accountant_image = fields.Binary()
+    accountant_manager_image = fields.Binary()
     employee_image = fields.Binary()
     manager_image = fields.Binary()
     ceo_image = fields.Binary()
@@ -143,11 +145,14 @@ class EmployeeRegisterPayment(models.Model):
     md_image = fields.Binary()
 
     accountant_user = fields.Char()
+    accountant_manager_user = fields.Char()
     employee_user = fields.Char()
     manager_user = fields.Char()
     ceo_user = fields.Char()
     cfo_user = fields.Char()
     md_user = fields.Char()
+
+   
 
     group_id = fields.Many2one('res.groups')
     user_id = fields.Many2one('res.users', default=lambda self: self.env.user)
@@ -216,6 +221,15 @@ class EmployeeRegisterPayment(models.Model):
         self.accountant_image = self.group_id.group_image
         if self.user_id.id == self.group_id.users.id:
             self.accountant_user = self.user_id.name
+    
+    def action_to_accountant_confirmation(self):
+        self.write({'state': 'confirm'})
+        self.is_signed_by_accountant_manager = True
+        self.group_id = self.get_group_id_by_name(
+            group_name="صلاحية مدير حسابات")
+        self.accountant_manager_image = self.group_id.group_image
+        if self.user_id.id == self.group_id.users.id:
+            self.accountant_manager_user = self.user_id.name
 
     def action_to_ceo(self):
         self.write({'state': 'ceo'})
@@ -243,9 +257,6 @@ class EmployeeRegisterPayment(models.Model):
         self.md_image = self.group_id.group_image
         if self.user_id.id == self.group_id.users.id:
             self.md_user = self.user_id.name
-
-    def action_to_accountant_confirmation(self):
-        self.write({'state': 'confirm'})
 
     def action_to_confirmed(self):
         vals = {

@@ -10,6 +10,9 @@
         <record id="accountant_group" model="res.groups">
             <field name="name">صلاحية محاسب</field>
         </record>
+        <record id="accountant_manager_group" model="res.groups">
+            <field name="name">صلاحية مدير حسابات</field>
+        </record>
         <record id="ceo_group" model="res.groups">
             <field name="name">صلاحية مدير تنفيذي</field>
         </record>

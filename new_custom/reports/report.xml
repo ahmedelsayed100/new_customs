@@ -17,7 +17,8 @@
                 </div>
             </div>
 
-
+            <br/>
+            <br/>
             <t t-foreach="docs" t-as="doc">
                 <div class="page" style="padding-left:10px;padding-right:10px;">
                     <table style="border-collapse: collapse;width: 100%;">
@@ -45,7 +46,7 @@
                                         <strong>Payment Voucher No.</strong>
                                         (                                        <strong t-esc="doc.ref"/>
 )
-                                                                                                                                                                                                                                                                                                                                                                        <!-- <p>Payment Voucher No.(67)</p> -->
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <!-- <p>Payment Voucher No.(67)</p> -->
                                     </span>
                                 </th>
                                 <th colspan="4" style="width:33.33%; text-align: right;">
@@ -71,23 +72,27 @@
                     <table style="border-collapse: collapse;width: 100%;">
 
                         <tbody>
-                            <tr style="text-align:center">
-                                <p>
-                                    <span style="float:left">Pay To Mr./s.</span>
-                                    <strong style="padding-left:10px" t-esc="doc.name"/>
-                                    <span style="float:right;width:25%">
+                            <tr >
+                                <p dir="rtl" style="text-align:start">
+                                    <span style="float:left">Pay To Mr./s</span>
+
+                                    <span style="float:right;width:20%;margin-right:5%">
                                         اصرفوا إلي السيد(ة)/السادة
                                     </span>
+                                    <strong t-esc="doc.name"/>
                                 </p>
-                            </tr>
 
-                            <tr style="text-align:center">
-                                <p>
-                                    <span style="float:left">Amount of:</span>
-                                    <span style="float:right;width:12%">
+
+
+
+                            </tr>
+                            <tr >
+                                <p dir="rtl" style="text-align:start">
+                                    <span style="float:left">:Amount of</span>
+                                    <span style="float:right;width:12%;margin-right:5%">
                                         مبلغ و قدره
                                     </span>
-                                    <strong style="padding-left:10px" t-esc="doc.amount_in_arabic"/>
+                                    <strong t-esc="doc.amount_in_arabic"/>
                                 </p>
                             </tr>
                             <tr style="text-align:center">
@@ -95,61 +100,74 @@
                                     <span style="float:left;padding-right:2%">Bank</span>
                                     <strong t-esc="doc.payment_method_id.name"/>
  علي بنك
-                                    <input type="checkbox" id="oe_import_tracking" style="margin-left:12px;margin-right:12px"/>
+                                    <input type="checkbox" id="oe_import_tracking" style="margin-left:10px;margin-right:10px"/>
                                     Bank Transfer
-                                    <input type="checkbox" id="oe_import_tracking" style="margin-left:12px;margin-right:12px"/>
+                                    <input type="checkbox" id="oe_import_tracking" style="margin-left:10px;margin-right:10px"/>
                                     Cash
-                                    <input type="checkbox" id="oe_import_tracking" style="margin-left:12px;margin-right:12px"/>
+                                    <input type="checkbox" id="oe_import_tracking" style="margin-left:10px;margin-right:10px"/>
                                     ........................... شيك رقم
-                                    <input type="checkbox" id="oe_import_tracking" style="margin-left:12px;margin-right:12px"/>
+                                    <input type="checkbox" id="oe_import_tracking" style="margin-left:10px;margin-right:10px"/>
                                     حواله
-                                    <input type="checkbox" id="oe_import_tracking" style="margin-left:12px;margin-right:12px"/>
+                                    <input type="checkbox" id="oe_import_tracking" style="margin-left:10px;margin-right:10px"/>
                                 </p>
 
-                                <tr style="text-align:center">
-                                    <p>
-                                        <span style="float:left;width:10%">Being:</span>
+                                <tr>
+                                    <p dir="rtl">
+                                        <span style="float:left;width:10%">:Being</span>
                                         <span style="float:right;width:12%">
                                             وذلك مقابل
                                         </span>
-                                        <strong style="padding-left:10px" t-esc="doc.analytic_account_id.name"/>
+
                                     </p>
                                 </tr>
-                                <tr style="text-align:end;direction:rtl">
-                                    <p style="margin-left:8%;">
-                                        <strong style="text-align:right" t-esc="doc.partner_id.name"/>
+                                <tr>
+                                    <p style="text-align:right" dir="rtl">
+                                        <strong style="margin-right:3%;text-align:right" t-esc="doc.analytic_account_id.name"/>
                                     </p>
-                                    <p style="margin-left:8%;">
-                                        <strong style="text-align:right" t-esc="doc.total_contract_with_tax"/>
+                                    <p style="margin-right:15%;text-align:right" dir="rtl">
+                                        <strong style="margin-right:1px" t-esc="doc.partner_id.name"/>
                                     </p>
-                                    <p style="margin-left:8%;">
+                                    <p style="margin-right:15%;text-align:right" dir="rtl">
+                                        <strong style="margin-right:1px" t-esc="doc.total_contract_with_tax"/>
+ريال سعودي 
+                                    </p>
+                                    <p style="margin-right:15%;text-align:right" dir="rtl">
                                 قيمة العقد قبل الضريبة                                        <strong style="margin-right:20px" t-esc="doc.total_contract"/>
+ ريال سعودي --
                                  قيمة الضريبة                                        <strong style="margin-right:20px" t-esc="doc.tax_precentage"/>
-%
+% --
                                  قيمة العقد يعد الضريبة                                        <strong style="margin-right:20px" t-esc="doc.total_contract_with_tax"/>
+ 
+ ريال سعودي 
                                     </p>
-                                    <p style="margin-left:8%;">
-                                        <strong style="text-align:right" t-esc="doc.memo"/>
-الملاحظات
-                                    </p>
+                                    <t t-if="doc.memo">
+                                        <p style="margin-right:15%;text-align:right" dir="rtl">
+                   الملاحظات                                            <strong style="text-align:right;" t-esc="doc.memo"/>
 
-                                    <p style="margin-left:8%;">
-                                        <strong style="text-align:right" t-esc="doc.reject_reason"/>
-الرفض
-                                    </p>
+                                        </p>
+                                    </t>
+                                    <t t-if="doc.reject_reason">
+                                        <p style="margin-right:15%;text-align:right" dir="rtl">
+                    الرفض                                            <strong style="text-align:start;" t-esc="doc.reject_reason"/>
+
+                                        </p>
+                                    </t>
 
 
-                                    <p style="margin-left:10%;">
+
+                                    <!-- <p style="margin-left:10%;">
                                     ........................................................................................................................................
                                     </p>
                                     <p style="margin-left:10%;">
                                     ........................................................................................................................................
-                                    </p>
+                                    </p> -->
                                 </tr>
                             </tr>
 
                         </tbody>
                     </table>
+                    <br/>
+                    <br/>
                     <br/>
                     <br/>
                     <t t-if="doc.payment_template_id">
@@ -195,118 +213,126 @@
                     </t>
                     <br/>
                     <br/>
-                    <table>
+                    <br/>
+                    <br/>
+                    <table style="width:100%">
                         <tr>
-                            <th colspan="4" style="width:  25%; text-align: center;">
+                            <th colspan="4" style="width:  20%; text-align: center;">
                                 <span>إعتماد</span>
                             </th>
-                            <th colspan="4" style="width: 33.33%; text-align: center;">
+                            <th colspan="4" style="width:  20%; text-align: center;">
+                                <span>إعتماد</span>
+                            </th>
+                            <th colspan="4" style="width: 20%; text-align: center;">
                                 <span>مراجعة</span>
                             </th>
-                            <th colspan="4" style="width: 33.33%; text-align: center;">
+                            <th colspan="4" style="width: 20%; text-align: center;">
                                 <span>مراجعة</span>
                             </th>
-                            <th colspan="4" style="width: 33.33%; text-align: center;">
+                            <th colspan="4" style="width:20%; text-align: center;">
                                 <span>إعداد</span>
                             </th>
 
                         </tr>
 
                         <tr>
-                            <th colspan="4" style="width: 25%; text-align: center;">
+                            <th colspan="4" style="width: 20%; text-align: center;">
                                 <span>Approved By</span>
                             </th>
-                            <th colspan="4" style="width: 33.33%; text-align: center;">
+                            <th colspan="4" style="width: 20%; text-align: center;">
+                                <span>Approved By</span>
+                            </th>
+                            <th colspan="4" style="width: 20%; text-align: center;">
                                 <span>Reviewed By</span>
                             </th>
-                            <th colspan="4" style="width: 33.33%; text-align: center;">
+                            <th colspan="4" style="width: 20%; text-align: center;">
                                 <span>Reviewed By</span>
                             </th>
-                            <th colspan="4" style="width: 33.33%; text-align: center;">
+                            <th colspan="4" style="width: 20%; text-align: center;">
                                 <span>Prepared By</span>
                             </th>
 
                         </tr>
 
                         <tr>
-                            <th colspan="4" style="width:  25%; text-align: center;">
+                            <th colspan="4" style="width: 20%; text-align: center;">
                                 <span>العضو المنتدب</span>
                             </th>
-                            <th colspan="4" style="width: 33.33%; text-align: center;">
+                            <th colspan="4" style="width: 20%; text-align: center;">
+                                <span>المدير التنفيذي</span>
+                            </th>
+                            <th colspan="4" style="width: 20%; text-align: center;">
                                 <span>المدير المالي</span>
                             </th>
-                            <th colspan="4" style="width: 33.33%; text-align: center;">
+                            <th colspan="4" style="width: 20%; text-align: center;">
                                 <span>رئيس الحسابات</span>
                             </th>
-                            <th colspan="4" style="width: 33.33%; text-align: center;">
+                            <th colspan="4" style="width: 20%; text-align: center;">
                                 <span>المحاسب</span>
                             </th>
 
                         </tr>
                         <tr>
-                            <th colspan="4" style="width:  25%; text-align: center;">
+                            <th colspan="4" style="width: 20%; text-align: center;">
                                 <span>M.D</span>
                             </th>
-                            <th colspan="4" style="width: 33.33%; text-align: center;">
+                            <th colspan="4" style="width: 20%; text-align: center;">
+                                <span>C.E.O.</span>
+                            </th>
+                            <th colspan="4" style="width: 20%; text-align: center;">
                                 <span>C.F.O.</span>
                             </th>
-                            <th colspan="4" style="width: 33.33%; text-align: center;">
+                            <th colspan="4" style="width: 20%; text-align: center;">
                                 <span>C.A.</span>
                             </th>
-                            <th colspan="4" style="width: 33.33%; text-align: center;">
+                            <th colspan="4" style="width: 20%; text-align: center;">
                                 <span>A.C.</span>
                             </th>
 
                         </tr>
                         <tr>
-                            <th colspan="4" style="width:  33.33%; text-align: center;">
-                                <t t-if="doc.is_signed_by_employee">
-                                    <img t-if="doc.employee_image" t-attf-src="data:image/*;base64,{{doc.employee_image}}" style="width:40%;height:40%"/>
+                            <th colspan="4" style="width: 20%; text-align: center;">
+                                <t t-if="doc.is_signed_by_md">
+                                    <img t-if="doc.md_image" t-attf-src="data:image/*;base64,{{doc.md_image}}" style="width:40%;height:40%"/>
                                 </t>
                             </th>
-                            <th colspan="4" style="width: 33.33%; text-align: center;">
-                                <t t-if="doc.is_signed_by_accountant">
-                                    <img t-if="doc.accountant_image" t-attf-src="data:image/*;base64,{{doc.accountant_image}}" style="width:40%;height:40%"/>
-                                </t>
-                            </th>
-                            <th colspan="4" style="width: 33.33%; text-align: center;">
-                                <t t-if="doc.is_signed_by_manager">
-                                    <img t-if="doc.manager_image" t-attf-src="data:image/*;base64,{{doc.manager_image}}" style="width:40%;height:40%"/>
-                                </t>
-                            </th>
-                            <th colspan="4" style="width: 33.33%; text-align: center;">
+
+                            <th colspan="4" style="width: 20%; text-align: center;">
                                 <t t-if="doc.is_signed_by_ceo">
                                     <img t-if="doc.ceo_image" t-attf-src="data:image/*;base64,{{doc.ceo_image}}" style="width:40%;height:40%"/>
                                 </t>
                             </th>
+                            <th colspan="4" style="width: 20%; text-align: center;">
+                                <t t-if="doc.is_signed_by_cfo">
+                                    <img t-if="doc.cfo_image" t-attf-src="data:image/*;base64,{{doc.cfo_image}}" style="width:40%;height:40%"/>
+                                </t>
+                            </th>
+
+                            <th colspan="4" style="width: 20%; text-align: center;">
+                                <t t-if="doc.is_signed_by_accountant_manager">
+                                    <img t-if="doc.accountant_manager_image" t-attf-src="data:image/*;base64,{{doc.accountant_manager_image}}" style="width:40%;height:40%"/>
+                                </t>
+                            </th>
+                            <th colspan="4" style="width: 20%; text-align: center;">
+                                <t t-if="doc.is_signed_by_accountant">
+                                    <img t-if="doc.accountant_image" t-attf-src="data:image/*;base64,{{doc.accountant_image}}" style="width:40%;height:40%"/>
+                                </t>
+                            </th>
+
+
+
                         </tr>
 
                         <tr>
-                            <th colspan="4" style="width: 33.33%;  text-align: center;">
-                                <t t-if="doc.employee_user">
-                                    <span t-esc="doc.employee_user"/>
+                            <th colspan="4" style="width: 20%; text-align: center;">
+                                <t t-if="doc.md_user">
+                                    <span t-esc="doc.md_user"/>
                                 </t>
                                 <t t-else="doc.employee_user==false">
                                     <span>..........................</span>
                                 </t>
                             </th>
-                            <th colspan="4" style="width: 33.33%; text-align: center;">
-                                <t t-if="doc.accountant_user">
-                                    <span t-esc="doc.accountant_user"/>
-                                </t>
-                                <t t-else="doc.accountant_user==false">
-                                    <span>..........................</span>
-                                </t>
-                            </th>
-                            <th colspan="4" style="width: 33.33%; text-align: center;">
-                                <t t-if="doc.manager_user">
-                                    <span t-esc="doc.manager_user"/>
-                                </t>
-                                <t t-else="doc.manager_user==false">
-                                    <span>..........................</span>
-                                </t>
-                            </th>
-                            <th colspan="4" style="width: 33.33%; text-align: center;">
+                            <th colspan="4" style="width: 20%; text-align: center;">
                                 <t t-if="doc.ceo_user">
                                     <span t-esc="doc.ceo_user"/>
                                 </t>
@@ -314,11 +340,41 @@
                                     <span>..........................</span>
                                 </t>
                             </th>
+                            <th colspan="4" style="width: 20%; text-align: center;">
+                                <t t-if="doc.cfo_user">
+                                    <span t-esc="doc.cfo_user"/>
+                                </t>
+                                <t t-else="doc.ceo_user==false">
+                                    <span>..........................</span>
+                                </t>
+                            </th>
+                            <th colspan="4" style="width: 20%; text-align: center;">
+                                <t t-if="doc.accountant_manager_user">
+                                    <span t-esc="doc.accountant_manager_user"/>
+                                </t>
+                                <t t-else="doc.accountant_manager_user==false">
+                                    <span>..........................</span>
+                                </t>
+                            </th>
+                            <th colspan="4" style="width: 20%; text-align: center;">
+                                <t t-if="doc.accountant_user">
+                                    <span t-esc="doc.accountant_user"/>
+                                </t>
+                                <t t-else="doc.accountant_user==false">
+                                    <span>..........................</span>
+                                </t>
+                            </th>
+
+
+
 
                         </tr>
                     </table>
                 </div>
             </t>
+
+
+
 
         </t>
     </template>

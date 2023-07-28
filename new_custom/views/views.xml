@@ -119,16 +119,35 @@
                         <!-- emp - manager - accountant - confirm acoountant - cfo - ceo - md - done -->
                         <button name="action_to_manager" groups="new_custom.employee_group" states="employee" string="Confirm" type="object" class="oe_highlight"/>
                         <button name="action_to_accountant" groups="new_custom.manager_group" states="manager" string="Confirm" type="object" class="oe_highlight"/>
-                        <button name="action_to_accountant_confirmation" groups="new_custom.ceo_group" states="accountant" string="Confirm" type="object" class="oe_highlight"/>
+                        <button name="action_to_accountant_confirmation" groups="new_custom.accountant_group" states="accountant" string="Confirm" type="object" class="oe_highlight"/>
 
-                        <button name="action_to_cfo" groups="new_custom.cfo_group" states="confirm" string="Confirm" type="object" class="oe_highlight"/>
-                        <button name="action_to_ceo" groups="new_custom.accountant_group" states="cfo" string="Confirm" type="object" class="oe_highlight"/>
-                        <button name="action_to_md" groups="new_custom.md_group" states="ceo" string="Confirm" type="object" class="oe_highlight"/>
-                        <button name="action_to_confirmed" groups="new_custom.create_payment_group" states="md" string="Done" type="object" class="oe_highlight"/>
+                        <button name="action_to_cfo" groups="new_custom.accountant_manager_group" states="confirm" string="Confirm" type="object" class="oe_highlight"/>
+                        <button name="action_to_ceo" groups="new_custom.cfo_group" states="cfo" string="Confirm" type="object" class="oe_highlight"/>
+                        <button name="action_to_md" groups="new_custom.ceo_group" states="ceo" string="Confirm" type="object" class="oe_highlight"/>
+                        <button name="action_to_confirmed" groups="new_custom.md_group" states="md" string="Done" type="object" class="oe_highlight"/>
 
-                        <button name="action_reject" string="Reject" type="object" class="oe_highlight"/>
-                        <button name="action_to_cancelled" string="Cancel" attrs="{'invisible':[('state','in',('done','cancelled'))]}" type="object" class="oe_highlight"/>
-                        <field name="state" force_save="1" widget="statusbar" statusbar_visible="employee,manager,accountant,confirm,cfo,ceo,md,done,rejected,cancelled" readonly="1"/>
+                        <button name="action_reject" string="Reject" groups="new_custom.employee_group" states="employee" type="object" class="oe_highlight"/>
+                        <button name="action_reject" string="Reject" groups="new_custom.manager_group" states="manager" type="object" class="oe_highlight"/>
+                        <button name="action_reject" string="Reject" groups="new_custom.ceo_group" states="ceo" type="object" class="oe_highlight"/>
+                        <button name="action_reject" string="Reject" groups="new_custom.cfo_group" states="cfo" type="object" class="oe_highlight"/>
+                        <button name="action_reject" string="Reject" groups="new_custom.accountant_group" states="accountant" type="object" class="oe_highlight"/>
+                        <button name="action_reject" string="Reject" groups="new_custom.accountant_manager_group" states="confirm" type="object" class="oe_highlight"/>
+                        <button name="action_reject" string="Reject" groups="new_custom.md_group" states="md" type="object" class="oe_highlight"/>
+                        <button name="action_reject" string="Reject" groups="new_custom.create_payment_group" states="employee_group" type="object" class="oe_highlight"/>
+                        <button name="action_reject" string="Reject" states="cancelled" groups="new_custom.ceo_group,new_custom.employee_group" type="object" class="oe_highlight"/>
+                        <!--                        <button name="action_to_cancelled" string="Cancel" attrs="{'invisible':[('state','in',('done','cancelled'))]}" type="object" class="oe_highlight"/>-->
+
+
+                        <button name="action_to_cancelled" string="Cancel" groups="new_custom.employee_group" states="employee" type="object" class="oe_highlight"/>
+                        <button name="action_to_cancelled" string="Cancel" groups="new_custom.manager_group" states="manager" type="object" class="oe_highlight"/>
+                        <button name="action_to_cancelled" string="Cancel" groups="new_custom.ceo_group" states="ceo" type="object" class="oe_highlight"/>
+                        <button name="action_to_cancelled" string="Cancel" groups="new_custom.cfo_group" states="cfo" type="object" class="oe_highlight"/>
+                        <button name="action_to_cancelled" string="Cancel" groups="new_custom.accountant_group" states="accountant" type="object" class="oe_highlight"/>
+                        <button name="action_to_cancelled" string="Cancel" groups="new_custom.accountant_manager_group" states="confirm" type="object" class="oe_highlight"/>
+                        <button name="action_to_cancelled" string="Cancel" groups="new_custom.md_group" states="md" type="object" class="oe_highlight"/>
+                        <button name="action_to_cancelled" string="Cancel" groups="new_custom.create_payment_group" states="employee_group" type="object" class="oe_highlight"/>
+                        <!--                        <button name="action_to_cancelled" string="Cancel" states="cancelled" type="object" class="oe_highlight"/>-->
+                        <field name="state" force_save="1" widget="statusbar" statusbar_visible="employee,manager,accountant,confirm,cfo,ceo,md,done,cancelled" readonly="1"/>
                     </header>
                     <sheet>
                         <div class="oe_button_box" name="button_box">
@@ -160,6 +179,7 @@
                             <field name="user_id" invisible="1" force_save="1"/>
                             <field name="is_signed_by_employee" invisible="1"/>
                             <field name="is_signed_by_accountant" invisible="1"/>
+                            <field name="is_signed_by_accountant_manager" invisible="1"/>
                             <field name="is_signed_by_manager" invisible="1"/>
                             <field name="is_signed_by_ceo" invisible="1"/>
                             <field name="is_signed_by_cfo" invisible="1"/>
@@ -167,6 +187,7 @@
 
 
                             <field name="accountant_image" invisible="1" force_save="1"/>
+                            <field name="accountant_manager_image" invisible="1" force_save="1"/>
                             <field name="employee_image" invisible="1" force_save="1"/>
                             <field name="manager_image" invisible="1" force_save="1"/>
                             <field name="ceo_image" invisible="1" force_save="1"/>
@@ -175,6 +196,7 @@
 
 
                             <field name="accountant_user" invisible="1" force_save="1"/>
+                            <field name="accountant_manager_user" invisible="1" force_save="1"/>
                             <field name="employee_user" invisible="1" force_save="1"/>
                             <field name="manager_user" invisible="1" force_save="1"/>
                             <field name="ceo_user" invisible="1" force_save="1" />
