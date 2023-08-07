@@ -34,19 +34,22 @@
                                         <!--<p>20    /  /   الموافق </p>-->
 
                                         <strong t-esc="doc.payment_date" style="marign-right:5px"/>
-الموافق
+                                        الموافق
                                     </span>
                                 </th>
                                 <th colspan="4" style="width: 33.33%; text-align: center;">
                                     <span>
-                                        (                                        <strong t-esc="doc.ref"/>
-                                        )                                        <strong style="direction: rtl;">سند صرف رقم </strong>
+                                        (
+                                        <strong t-esc="doc.ref"/>
+                                        )
+                                        <strong style="direction: rtl;">سند صرف رقم</strong>
                                         <br/>
                                         <!-- <p style="direction: rtl;">سند صرف رقم (67)</p> -->
                                         <strong>Payment Voucher No.</strong>
-                                        (                                        <strong t-esc="doc.ref"/>
-)
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <!-- <p>Payment Voucher No.(67)</p> -->
+                                        (
+                                        <strong t-esc="doc.ref"/>
+                                        )
+                                        <!-- <p>Payment Voucher No.(67)</p> -->
                                     </span>
                                 </th>
                                 <th colspan="4" style="width:33.33%; text-align: right;">
@@ -55,11 +58,13 @@
                                     </p>
 
                                     <t t-if="doc.amount">
-                                        <span style=" border: 2px solid black;padding: 5px 20px 5px 20px;text-align:center" t-esc="doc.amount" border="1"/>
+                                        <span style=" border: 2px solid black;padding: 5px 20px 5px 20px;text-align:center"
+                                              t-esc="doc.amount" border="1"/>
                                         <!--<span style=" border: 2px solid black;padding: 5px 37px 5px 37px;" border="1"/>-->
                                     </t>
                                     <t t-if="doc.amount==false">
-                                        <span style=" border: 2px solid black;padding: 5px 40px 5px 40px;text-align:center" border="1"/>
+                                        <span style=" border: 2px solid black;padding: 5px 40px 5px 40px;text-align:center"
+                                              border="1"/>
                                         <!--<span style=" border: 2px solid black;padding: 5px 40px 5px 40px;" border="1"/>-->
                                     </t>
 
@@ -72,24 +77,22 @@
                     <table style="border-collapse: collapse;width: 100%;">
 
                         <tbody>
-                            <tr >
+                            <tr>
                                 <p dir="rtl" style="text-align:start">
                                     <span style="float:left">Pay To Mr./s</span>
 
-                                    <span style="float:right;width:20%;margin-right:5%">
+                                    <span style="float:right;width:25%;margin-right:5%">
                                         اصرفوا إلي السيد(ة)/السادة
                                     </span>
                                     <strong t-esc="doc.name"/>
                                 </p>
 
 
-
-
                             </tr>
-                            <tr >
+                            <tr>
                                 <p dir="rtl" style="text-align:start">
-                                    <span style="float:left">:Amount of</span>
-                                    <span style="float:right;width:12%;margin-right:5%">
+                                    <span style="float:left;width:10%">:Amount of</span>
+                                    <span style="float:right;width:25%;margin-right:5%">
                                         مبلغ و قدره
                                     </span>
                                     <strong t-esc="doc.amount_in_arabic"/>
@@ -99,22 +102,27 @@
                                 <p>
                                     <span style="float:left;padding-right:2%">Bank</span>
                                     <strong t-esc="doc.payment_method_id.name"/>
- علي بنك
-                                    <input type="checkbox" id="oe_import_tracking" style="margin-left:10px;margin-right:10px"/>
+                                    علي بنك
+                                    <input type="checkbox" id="oe_import_tracking"
+                                           style="margin-left:10px;margin-right:10px"/>
                                     Bank Transfer
-                                    <input type="checkbox" id="oe_import_tracking" style="margin-left:10px;margin-right:10px"/>
+                                    <input type="checkbox" id="oe_import_tracking"
+                                           style="margin-left:10px;margin-right:10px"/>
                                     Cash
-                                    <input type="checkbox" id="oe_import_tracking" style="margin-left:10px;margin-right:10px"/>
+                                    <input type="checkbox" id="oe_import_tracking"
+                                           style="margin-left:10px;margin-right:10px"/>
                                     ........................... شيك رقم
-                                    <input type="checkbox" id="oe_import_tracking" style="margin-left:10px;margin-right:10px"/>
+                                    <input type="checkbox" id="oe_import_tracking"
+                                           style="margin-left:10px;margin-right:10px"/>
                                     حواله
-                                    <input type="checkbox" id="oe_import_tracking" style="margin-left:10px;margin-right:10px"/>
+                                    <input type="checkbox" id="oe_import_tracking"
+                                           style="margin-left:10px;margin-right:10px"/>
                                 </p>
 
                                 <tr>
                                     <p dir="rtl">
                                         <span style="float:left;width:10%">:Being</span>
-                                        <span style="float:right;width:12%">
+                                        <span style="float:right;width:11%;margin-right:5%">
                                             وذلك مقابل
                                         </span>
 
@@ -122,37 +130,43 @@
                                 </tr>
                                 <tr>
                                     <p style="text-align:right" dir="rtl">
-                                        <strong style="margin-right:3%;text-align:right" t-esc="doc.analytic_account_id.name"/>
+                                        <strong style="margin-right:0%;text-align:right"
+                                                t-esc="doc.analytic_account_id.name"/>
                                     </p>
                                     <p style="margin-right:15%;text-align:right" dir="rtl">
                                         <strong style="margin-right:1px" t-esc="doc.partner_id.name"/>
                                     </p>
                                     <p style="margin-right:15%;text-align:right" dir="rtl">
                                         <strong style="margin-right:1px" t-esc="doc.total_contract_with_tax"/>
-ريال سعودي 
+                                        ريال سعودي
                                     </p>
                                     <p style="margin-right:15%;text-align:right" dir="rtl">
-                                قيمة العقد قبل الضريبة                                        <strong style="margin-right:20px" t-esc="doc.total_contract"/>
- ريال سعودي --
-                                 قيمة الضريبة                                        <strong style="margin-right:20px" t-esc="doc.tax_precentage"/>
-% --
-                                 قيمة العقد يعد الضريبة                                        <strong style="margin-right:20px" t-esc="doc.total_contract_with_tax"/>
- 
- ريال سعودي 
+                                        قيمة العقد قبل الضريبة
+                                        <strong style="margin-right:20px" t-esc="doc.total_contract"/>
+                                        ريال سعودي
+                                        <br/>
+                                        قيمة الضريبة
+                                        <strong style="margin-right:20px" t-esc="doc.tax_precentage"/>
+                                        %
+                                        <br/>
+                                        قيمة العقد بعد الضريبة
+                                        <strong style="margin-right:20px" t-esc="doc.total_contract_with_tax"/>
+                                        ريال سعودي
                                     </p>
                                     <t t-if="doc.memo">
                                         <p style="margin-right:15%;text-align:right" dir="rtl">
-                   الملاحظات                                            <strong style="text-align:right;" t-esc="doc.memo"/>
+                                            الملاحظات
+                                            <strong style="text-align:right;" t-esc="doc.memo"/>
 
                                         </p>
                                     </t>
                                     <t t-if="doc.reject_reason">
                                         <p style="margin-right:15%;text-align:right" dir="rtl">
-                    الرفض                                            <strong style="text-align:start;" t-esc="doc.reject_reason"/>
+                                            الرفض
+                                            <strong style="text-align:start;" t-esc="doc.reject_reason"/>
 
                                         </p>
                                     </t>
-
 
 
                                     <!-- <p style="margin-left:10%;">
@@ -190,10 +204,12 @@
                                         </td>
                                         <td>
                                             <t t-if="line.is_paid==true">
-                                                <input type="checkbox" id="oe_import_tracking" checked="checked" style="margin-left:12px;margin-right:12px"/>
+                                                <input type="checkbox" id="oe_import_tracking" checked="checked"
+                                                       style="margin-left:12px;margin-right:12px"/>
                                             </t>
                                             <t t-else="line.is_paid==false">
-                                                <input type="checkbox" id="oe_import_tracking" style="margin-left:12px;margin-right:12px"/>
+                                                <input type="checkbox" id="oe_import_tracking"
+                                                       style="margin-left:12px;margin-right:12px"/>
                                             </t>
                                         </td>
                                         <td>
@@ -293,32 +309,38 @@
                         <tr>
                             <th colspan="4" style="width: 20%; text-align: center;">
                                 <t t-if="doc.is_signed_by_md">
-                                    <img t-if="doc.md_image" t-attf-src="data:image/*;base64,{{doc.md_image}}" style="width:40%;height:40%"/>
+                                    <img t-if="doc.md_image" t-attf-src="data:image/*;base64,{{doc.md_image}}"
+                                         style="width:40%;height:40%"/>
                                 </t>
                             </th>
 
                             <th colspan="4" style="width: 20%; text-align: center;">
                                 <t t-if="doc.is_signed_by_ceo">
-                                    <img t-if="doc.ceo_image" t-attf-src="data:image/*;base64,{{doc.ceo_image}}" style="width:40%;height:40%"/>
+                                    <img t-if="doc.ceo_image" t-attf-src="data:image/*;base64,{{doc.ceo_image}}"
+                                         style="width:40%;height:40%"/>
                                 </t>
                             </th>
                             <th colspan="4" style="width: 20%; text-align: center;">
                                 <t t-if="doc.is_signed_by_cfo">
-                                    <img t-if="doc.cfo_image" t-attf-src="data:image/*;base64,{{doc.cfo_image}}" style="width:40%;height:40%"/>
+                                    <img t-if="doc.cfo_image" t-attf-src="data:image/*;base64,{{doc.cfo_image}}"
+                                         style="width:40%;height:40%"/>
                                 </t>
                             </th>
 
                             <th colspan="4" style="width: 20%; text-align: center;">
                                 <t t-if="doc.is_signed_by_accountant_manager">
-                                    <img t-if="doc.accountant_manager_image" t-attf-src="data:image/*;base64,{{doc.accountant_manager_image}}" style="width:40%;height:40%"/>
+                                    <img t-if="doc.accountant_manager_image"
+                                         t-attf-src="data:image/*;base64,{{doc.accountant_manager_image}}"
+                                         style="width:40%;height:40%"/>
                                 </t>
                             </th>
                             <th colspan="4" style="width: 20%; text-align: center;">
                                 <t t-if="doc.is_signed_by_accountant">
-                                    <img t-if="doc.accountant_image" t-attf-src="data:image/*;base64,{{doc.accountant_image}}" style="width:40%;height:40%"/>
+                                    <img t-if="doc.accountant_image"
+                                         t-attf-src="data:image/*;base64,{{doc.accountant_image}}"
+                                         style="width:40%;height:40%"/>
                                 </t>
                             </th>
-
 
 
                         </tr>
@@ -366,14 +388,10 @@
                             </th>
 
 
-
-
                         </tr>
                     </table>
                 </div>
             </t>
-
-
 
 
         </t>
